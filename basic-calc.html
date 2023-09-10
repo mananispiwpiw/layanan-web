@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Layanan</title>
+    <style>
+        button {
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+        }
+
+        #display {
+            width: 240px;
+            height: 60px;
+            font-size: 24px;
+        }
+
+        /* Centered text and larger size for links */
+        .centered-link {
+            display: flex;
+            justify-content: center;
+            font-size: 36px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kalkulator Layanan</h1>
+    <div>
+        <input type="text" id="display" readonly>
+    </div>
+    <div>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('+')">+</button>
+    </div>
+    <div>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('-')">-</button>
+    </div>
+    <div>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('*')">*</button>
+    </div>
+    <div>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="calculateResult()">=</button>
+        <button onclick="appendToDisplay('/')">/</button>
+    </div>
+    
+    <!-- Advanced text link with hyperlink to cal.html using href -->
+    <div class="centered-link">
+        <a>Feeling a Little&nbsp;</a>
+        <a href="cal.html">Advanced</a>
+    </div>
+
+    <!-- Basic text link with hyperlink to index.html using href -->
+    <div class="centered-link">
+      <a>Feeling a Little&nbsp;</a>
+        <a href="index.html">Basic</a>
+    </div>
+
+    <script>
+        function appendToDisplay(value) {
+            const display = document.getElementById('display');
+            display.value += value;
+        }
+
+        function clearDisplay() {
+            const display = document.getElementById('display');
+            display.value = '';
+        }
+
+        function calculateResult() {
+            const display = document.getElementById('display');
+            try {
+                display.value = eval(display.value);
+            } catch (error) {
+                display.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
